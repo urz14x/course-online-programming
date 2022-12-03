@@ -5,7 +5,6 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import axios from "axios";
 import { RecoilRoot } from "recoil";
-import Navbar from "./components/Navbar";
 import { BrowserRouter } from "react-router-dom";
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/api/";

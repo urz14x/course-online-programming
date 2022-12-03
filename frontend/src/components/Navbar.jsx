@@ -19,12 +19,12 @@ function Navbar(props) {
   return (
     <>
       <nav className="">
-        <nav className="flex flex-col items-center justify-between sm:flex-row p-3 container mx-auto ">
+        <nav className="flex flex-col items-center justify-between sm:flex-row p-2 container mx-auto ">
           <div className="bg flex w-full items-center justify-between">
-            <div className="flex items-center rounded-full bg-white p-2 shadow-sm">
-              <button>
+            <div className="flex items-center rounded-md bg-white shadow-sm">
+              <button className="bg-primary p-3 rounded-l-md">
                 <svg
-                  className="h-7 w-7 text-gray-700"
+                  className="h-5 w-5 text-white flex-auto"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -40,7 +40,7 @@ function Navbar(props) {
               </button>
               <input
                 type="text"
-                className="w-40 bg-transparent px-2 placeholder:italic focus:outline-none"
+                className="w-40 bg-transparent px-2 placeholder:italic focus:outline-none flex-1"
                 placeholder="e.g Python Variable"
               />
             </div>
@@ -186,8 +186,13 @@ function Navbar(props) {
             ) : (
               <ul className="flex w-full justify-center">
                 <li className="flex items-center w-full">
-                  <NavLink className="block px-4 py-5" to="/">
+                  <NavLink className="block px-4 py-5" to="/signin">
                     Login
+                  </NavLink>
+                </li>
+                <li className="flex items-center w-full">
+                  <NavLink className="block px-4 py-5" to="/signup">
+                    Register
                   </NavLink>
                 </li>
               </ul>

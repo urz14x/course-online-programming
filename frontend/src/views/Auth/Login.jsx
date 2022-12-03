@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
-import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { authenticated } from "../../store";
 

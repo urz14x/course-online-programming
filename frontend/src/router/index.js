@@ -19,6 +19,14 @@ const Router = () => {
           exact
           path="/"
           element={
+            <Authenticated>
+              <Home />
+            </Authenticated>
+          }
+        />
+        <Route
+          path="/signin"
+          element={
             <Guest>
               <Login />
             </Guest>
@@ -43,14 +51,7 @@ const Router = () => {
             </Authenticated>
           }
         />
-        <Route
-          path="/course"
-          element={
-            <Authenticated>
-              <Course />
-            </Authenticated>
-          }
-        />
+        <Route path="/course" element={<Course />} />
         <Route path="/article" element={<Article />} />
         <Route
           path="/account/profile"
