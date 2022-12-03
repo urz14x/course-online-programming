@@ -158,7 +158,7 @@ const Register = () => {
             </button>
             <p>
               Already have an account? Sign-in{" "}
-              <Link to="/">
+              <Link to="/signin">
                 <u>Here</u>
               </Link>
             </p>
