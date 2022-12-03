@@ -44,14 +44,19 @@ const Router = () => {
         <Route
           path="/home"
           element={
+            <Guest>
+              <Home />
+            </Guest>
+          }
+        />
+        <Route
+          path="/course"
+          element={
             <Authenticated>
-              <Guest>
-                <Home />
-              </Guest>
+              <Course />
             </Authenticated>
           }
         />
-        <Route path="/course" element={<Course />} />
         <Route path="/article" element={<Article />} />
         <Route
           path="/account/profile"

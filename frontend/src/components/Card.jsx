@@ -12,7 +12,10 @@ export default function Card() {
       </span>
       <div className="p-3 bg-gray-50">
         <p className="bg-gray-300 p-2 rounded-md w-2/1">
-          Python#1 Variable & data type
+          <a href="/python-variable" className="hover:underline">
+            {" "}
+            Python#1 Variable & data type
+          </a>
         </p>
         <div className="flex gap-1 flex-row items-center pt-4">
           <svg

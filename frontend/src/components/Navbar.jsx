@@ -75,22 +75,31 @@ function Navbar(props) {
             }  sm:flex justify-between w-full`}
           >
             <ul className="flex flex-col sm:flex-row">
-              <li>
-                <NavLink
-                  className="block px-4 py-5 font-bold hover:text-gray-500 font-text_secondary"
-                  to="/home"
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className="block px-4 py-5 font-bold hover:text-gray-500 font-text_secondary"
-                  to="/course"
-                >
-                  Course
-                </NavLink>
-              </li>
+              {auth.check ? (
+                <li>
+                  <NavLink
+                    className="block px-4 py-5 font-bold hover:text-gray-500 font-text_secondary"
+                    to="/home"
+                  >
+                    Home
+                  </NavLink>
+                </li>
+              ) : (
+                ""
+              )}
+              {auth.check ? (
+                <li>
+                  <NavLink
+                    className="block px-4 py-5 font-bold hover:text-gray-500 font-text_secondary"
+                    to="/course"
+                  >
+                    Course
+                  </NavLink>
+                </li>
+              ) : (
+                ""
+              )}
+
               <li>
                 <NavLink
                   className="block px-4 py-5 font-bold hover:text-gray-500 font-text_secondary"
