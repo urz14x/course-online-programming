@@ -35,7 +35,6 @@ class LoginController extends Controller
         //     'user' => $user,
         //     'token' => $token->plainTextToken
         // ];
-
         return (new UserResource($user))->additional(compact('token'));
     }
 }
