@@ -1,0 +1,55 @@
+.active-nav-button--active::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -1.25rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  background-color: #7fcf97;
+  border-radius: 50%;
+}
+.profile-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+.profile-input {
+  position: absolute;
+  transform: scale(0);
+}
+.profile-button {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: auto;
+  justify-content: space-evenly;
+  padding: 1rem 1rem 1rem 1.75rem;
+}
+.profile-chevron {
+  transition: transform 0.34s;
+}
+.profile-menu {
+  z-index: 1;
+  top: 4.5rem;
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: #db6868;
+  transform: translateY(1rem);
+  color: wheat;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 0.5rem;
+  transition: 0.35s;
+}
+.profile-menu > button:nth-child(1) {
+  margin-bottom: 1rem;
+}
+.profile-input:checked ~ .profile-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+.profile-input:checked ~ .profile-button .profile-chevron {
+  transform: rotate(-180deg);
+}

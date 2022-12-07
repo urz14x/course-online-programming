@@ -6,7 +6,7 @@ export default function Card() {
       <span className="img">
         <img
           className=" object-contain rounded-sm"
-          src={images.CardImage}
+          src="https://i3.ytimg.com/vi/gxmTFXfrMzk/mqdefault.jpg"
           alt=""
         />
       </span>
@@ -32,9 +32,9 @@ export default function Card() {
               d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <span className="font-bold font-text_primary">13:20</span>
+          <span className="font-bold font-text_primary">5:13</span>
           <div className="w-full h-3 bg-gray-400 rounded-full">
-            <div className="bg-blue-600 h-3 rounded-full w-1/4"></div>
+            <div className="bg-blue-600 h-3 rounded-full w-1/3"></div>
           </div>
         </div>
       </div>

@@ -9,11 +9,7 @@ const Authenticated = ({ children, data }) => {
 
   useEffect(() => {
     if (!auth.check) {
-      return redirect("/article");
-    } else if (auth.check) {
-      return redirect("/course");
-    } else {
-      return redirect("/home");
+      return redirect("/articles");
     }
   }, [auth.check, redirect]);
   return children;

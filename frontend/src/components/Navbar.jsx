@@ -3,6 +3,7 @@ import { useState } from "react";
 import { NavLink, redirect, useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { authenticated } from "../store";
+import "./Styles.css";
 
 function Navbar(props) {
   const redirect = useNavigate();
@@ -18,8 +19,8 @@ function Navbar(props) {
   };
   return (
     <>
-      <nav className="">
-        <nav className="flex flex-col items-center justify-between sm:flex-row p-2 container mx-auto ">
+      <nav>
+        <nav className="flex flex-col items-center justify-between sm:flex-row container mx-auto ">
           <div className="bg flex w-full items-center justify-between">
             <div className="flex items-center rounded-md bg-white shadow-sm">
               <button className="bg-primary p-3 rounded-l-md">
@@ -103,7 +104,7 @@ function Navbar(props) {
               <li>
                 <NavLink
                   className="block px-4 py-5 font-bold hover:text-gray-500 font-text_secondary"
-                  to="/article"
+                  to="/articles"
                 >
                   Article
                 </NavLink>
@@ -114,12 +115,16 @@ function Navbar(props) {
           <nav
             className={`${
               isOpen ? "block" : "hidden"
-            } sm:flex justify-between w-full sm:w-auto`}
+            } sm:flex justify-between w-full sm:w-auto z-50`}
           >
             {auth.check ? (
               <ul className="flex w-full justify-center relative">
                 <li className="flex items-center w-full">
-                  <a className="block px-4 py-5" href="#">
+                  <a
+                    onClick={() => setOpenMenu(!openMenu)}
+                    className="block px-4 py-5"
+                    href="#"
+                  >
                     {auth.user.first_name}
                   </a>
                   <button onClick={() => setOpenMenu(!openMenu)} type="button">
@@ -141,21 +146,21 @@ function Navbar(props) {
                   <div
                     className={` ${
                       openMenu ? "hidden" : "block"
-                    } absolute top-16 right-12 bg-gray-50 shadow-md divide-y divide-gray-500 rounded`}
+                    } absolute top-16 right-0 bg-gray-50 shadow-md divide-y divide-gray-300 rounded`}
                   >
                     <div className="px-5 py-3 flex space-x-3 w-48">
-                      <i>
+                      <i className="">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
-                          stroke-width="1.5"
+                          strokeWidth="1.5"
                           stroke="currentColor"
-                          class="w-6 h-6"
+                          className="w-6 h-6 hover:rotate-180"
                         >
                           <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
                           />
                         </svg>
@@ -175,7 +180,7 @@ function Navbar(props) {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke="currentColor"
-                        class="w-6 h-6"
+                        className="w-6 h-6"
                       >
                         <path
                           strokeLinecap="round"

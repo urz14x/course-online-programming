@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import Hero from "../assets/images/video-hero.png";
 import Card from "../components/Card";
 import { authenticated } from "../store";
 const Home = () => {
