@@ -15,6 +15,9 @@ class AdminLogoutController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //
+        $request->admin()->tokens()->where("id", $request->admin()->currentAccessToken()->id)->delete();
+        return response()->json([
+             "messages" => "You are logout"
+        ]);
     }
 }
