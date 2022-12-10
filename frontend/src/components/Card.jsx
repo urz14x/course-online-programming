@@ -1,20 +1,19 @@
 import React from "react";
 import images from "../assets/images.js";
-export default function Card() {
+export default function Card(props) {
   return (
     <div className="bg-gray-50">
       <span className="img">
         <img
-          className=" object-contain rounded-sm"
-          src="https://i3.ytimg.com/vi/gxmTFXfrMzk/mqdefault.jpg"
-          alt=""
+          className=" object-contain rounded-sm w-full h-52"
+          src={props.thumbnail}
+          alt="Video thumbnail"
         />
       </span>
       <div className="p-3 bg-gray-50">
         <p className="bg-gray-300 p-2 rounded-md w-2/1">
           <a href="/python-variable" className="hover:underline">
-            {" "}
-            Python#1 Variable & data type
+            {props.title}
           </a>
         </p>
         <div className="flex gap-1 flex-row items-center pt-4">
@@ -32,9 +31,9 @@ export default function Card() {
               d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <span className="font-bold font-text_primary">5:13</span>
+          <span className="font-bold font-text_primary">{props.duration}</span>
           <div className="w-full h-3 bg-gray-400 rounded-full">
-            <div className="bg-blue-600 h-3 rounded-full w-1/3"></div>
+            <div className="bg-blue-600 h-3 rounded-full w-2/2"></div>
           </div>
         </div>
       </div>

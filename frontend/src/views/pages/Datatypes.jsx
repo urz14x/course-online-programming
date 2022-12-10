@@ -13,11 +13,6 @@ export default function Datatypes() {
         dan float. Integer untuk objek bilangan bulat baik positif maupun
         negatif. dan boolean adalah true dan false saja
       </p>
-      <img
-        className="w-96 h-60 rounded-md py-4 mb-4"
-        src="https://lh4.googleusercontent.com/PN9yVc2p3u-JcQVd0TqzHvsot0KkkVR7QnnNGN2q_U7suZhSoUN7xeYsUYzEYgKTUlhlgVKNWktyWYAY2sVkg19rRBaVN-Aw4NCbEP-cKuo1qTMV2eqA4j29P_0mbPZYkjDFbXHZAMHWOGJmBJEM03s"
-        alt="Python"
-      />
     </div>
   );
 }

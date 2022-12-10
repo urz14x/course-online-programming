@@ -63,9 +63,21 @@ const Home = () => {
       </div>
       <div className="flex items-center justify-center pb-10 ">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          <Card />
-          <Card />
-          <Card />
+          <Card
+            title="Pytohn #1 Apa itu python"
+            thumbnail="https://i.ytimg.com/vi/8vb5yrrWLLw/maxresdefault.jpg"
+            duration="23:00"
+          />
+          <Card
+            title="Pytohn #2 Tipe data"
+            thumbnail="https://i.ytimg.com/vi/Ssf9NX6qJYQ/maxresdefault.jpg"
+            duration="23:00"
+          />
+          <Card
+            title="Pytohn #3 Perulangan"
+            thumbnail="https://i3.ytimg.com/vi/gxmTFXfrMzk/mqdefault.jpg"
+            duration="23:00"
+          />
         </div>
       </div>
     </>

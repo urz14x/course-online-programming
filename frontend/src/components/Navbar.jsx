@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { NavLink, redirect, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { authenticated } from "../store";
 import "./Styles.css";
@@ -19,7 +19,7 @@ function Navbar(props) {
   };
   return (
     <>
-      <nav>
+      <nav className="py-5">
         <nav className="flex flex-col items-center justify-between sm:flex-row container mx-auto ">
           <div className="bg flex w-full items-center justify-between">
             <div className="flex items-center rounded-md bg-white shadow-sm">
@@ -156,7 +156,7 @@ function Navbar(props) {
                           viewBox="0 0 24 24"
                           strokeWidth="1.5"
                           stroke="currentColor"
-                          className="w-6 h-6 hover:rotate-180"
+                          className="w-6 h-6"
                         >
                           <path
                             strokeLinecap="round"

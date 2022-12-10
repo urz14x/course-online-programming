@@ -22,7 +22,6 @@ const Router = () => {
   return (
     <>
       <Navbar />
-
       <Routes>
         <Route
           exact
@@ -107,6 +106,7 @@ const Router = () => {
             </Sidebar>
           }
         />
+
         <Route
           path="/account/profile"
           element={

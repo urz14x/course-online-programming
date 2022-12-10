@@ -53,3 +53,6 @@
 .profile-input:checked ~ .profile-button .profile-chevron {
   transform: rotate(-180deg);
 }
+NavLink:not(:first-child) {
+  border-left: 1px solid #d5d3da;
+}

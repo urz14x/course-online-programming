@@ -3,7 +3,7 @@ import React from "react";
 export default function Functions() {
   return (
     <div>
-      <h1 className="heading">Apa itu python?</h1>
+      <h1 className="heading">Functions / fungsi</h1>
       <p className="content">
         Kalau dibandingkan bahasa pemrograman lainnya, Python adalah sebuah
         bahasa pemrograman yang dianggap mudah untuk dipelajari para programmer
