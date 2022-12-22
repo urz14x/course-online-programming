@@ -1,28 +1,76 @@
 import React from "react";
-
-export default function If() {
+import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
+export default function Datatypes() {
   return (
-    <div>
-      <h1 className="heading">Pecabangan pada python</h1>
-      <p className="content">
-        Percabangan dalam dunia pemrograman adalah proses penentuan keputusan
-        atau dalam bahasa inggris ini biasa disebut sebagai conditional
-        statement Konsepnya sederhana: kita menginstruksikan komputer untuk
-        melakukan suatu aksi tertentu (X), hanya jika suatu kondisi Y terpenuhi.
-        Atau, kita memerintahkan komputer untuk melakukan aksi tertentu (A) jika
-        suatu kondisi tidak terpenuhi.
-      </p>
-      <img
-        className="w-96 h-60 rounded-md py-4 mb-4"
-        src="https://th.bing.com/th/id/OIP.I5Qpw2jlctHAiplP5JZ6dAHaEK?pid=ImgDet&w=1920&h=1080&rs=1"
-        alt="Python"
-      />
-      <p className="content">
-        Ketika menjalankan sebuah bahasa pemrograman yang ada di komputer, tentu
-        tidak bisa menggunakan bahasa biasa saja. Bahasa-bahasa tersebut harus
-        diubah bentuknya agar dapat diterima dan diproses oleh komputer. Inilah
-        yang kemudian disebut sebagai bahasa pemrograman.{" "}
-      </p>
-    </div>
+    <section className="flex flex-col justify-center items-start min-h-screen p-5">
+      <div className="container mx-auto">
+        <motion.h1
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="heading"
+        >
+          Percabangan pada python
+        </motion.h1>
+        <motion.article
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="text-body font-text_primary text-gray-700 tracking-tight antialiased">
+            Ketika kamu sedang mengerjakan sebuah kasus, dan menemukan banyak
+            pilihan dalam program tersebut, kamu diharuskan untuk memutuskan
+            satu pilihan yang sesuai dengan masalah yang dihadapi oleh program.
+            Untuk itu, solusi dari kasus ini adalah penggunaan percabangan
+            Python.
+          </p>
+        </motion.article>
+        <div className="mt-5 flex items-center gap-5">
+          <NavLink to="/tipe-data">
+            <button className="btn_next flex items-center gap-3 font-text_primary shadow-md overflow-hidden">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+                  />
+                </svg>
+              </span>
+              <span>Kembali</span>
+            </button>
+          </NavLink>
+          <NavLink to="/choose">
+            <button className="btn_next flex items-center gap-3 font-text_primary shadow-md overflow-hidden">
+              <span>Selanjutnya</span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                  />
+                </svg>
+              </span>
+            </button>
+          </NavLink>
+        </div>
+      </div>
+    </section>
   );
 }

@@ -1,4 +1,7 @@
 import axios from "axios";
+import "./Style.css";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 import React, { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
@@ -9,7 +12,7 @@ import { authenticated } from "../../store";
 const Login = () => {
   const redirect = useNavigate();
   let input_password = useRef();
-
+  const MySwal = withReactContent(Swal);
   /*Recoil state*/
   const [auth, setAuth] = useRecoilState(authenticated);
 
@@ -18,7 +21,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
   /*Error state*/
-  const [message, setMessage] = useState("");
   const [errors, setErrors] = useState("");
 
   const credentials = { email, password };
@@ -30,11 +32,22 @@ const Login = () => {
       setAuth({ check: true });
       setEmail("");
       setPassword("");
+
       redirect("/home");
+      MySwal.fire({
+        title: <strong>Login success</strong>,
+        html: <i>Anda Berhasil login</i>,
+        icon: "success",
+      });
     } catch (error) {
-      console.log(error);
       setErrors(error.response.data.errors);
-      setMessage(error.response.data.message);
+
+      MySwal.fire({
+        title: <strong>Login failed</strong>,
+        html: <i>Email atau password salah</i>,
+        icon: "error",
+      });
+      redirect("/signin");
     }
   };
 
@@ -51,20 +64,25 @@ const Login = () => {
         <h1 className=" py-14 px-4 leading-snug antialiased font-bold text-3xl text-gray-600">
           Sign-In
         </h1>
-        <h1 className="px-4 text-red font-semibold text-2xl text-red-500">
-          {message ? "Sign-in failed / Incorrect credentials" : ""}
-        </h1>
 
         <form onSubmit={handlerSubmit}>
           {/* Form col */}
           <div className=" py-2 px-4 flex flex-col gap-2">
-            <div className="form-controls border-2 border-gray-400 flex items-center p-1 rounded-lg ">
+            <div
+              className={`form-controls border-2 ${
+                errors.email ? "border-red-500" : "border-gray-400"
+              } flex items-center p-1 rounded-lg`}
+            >
               <label
                 id="email"
-                className=" text-xl text-gray-500 uil uil-user px-1"
+                className={`text-xl ${
+                  errors.email
+                    ? "text-red-500"
+                    : "text-gray-500  focus:text-green-600"
+                } uil uil-user px-1 email-icon`}
               ></label>
               <input
-                className="  indent-2  border-0 w-full sm:w-[370px] h-10 focus:outline-none"
+                className="  indent-2  border-0 w-full sm:w-[370px] h-10 focus:outline-none email-field"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
                 type="text"
@@ -73,13 +91,19 @@ const Login = () => {
                 placeholder="Email"
               />
             </div>
-            <p className="text-sm text-red-500 font-semibold">
+            <p className="text-sm text-red-600 font-semibold font-text_primary">
               {errors.email ? errors.email[0] : ""}
             </p>
-            <div className="form-controls border-2 border-gray-400 flex items-center p-1 rounded-lg ">
+            <div
+              className={`form-controls border-2 ${
+                errors.password ? "border-red-500" : "border-gray-400"
+              } flex items-center p-1 rounded-lg`}
+            >
               <label
                 id="Password"
-                className=" text-xl text-gray-500 uil uil-lock px-1"
+                className={`text-xl ${
+                  errors.password ? "text-red-500" : "text-gray-500"
+                } uil uil-lock px-1`}
               ></label>
               <input
                 className="  indent-2  border-0 w-full sm:w-[370px] h-10 focus:outline-none"
@@ -133,7 +157,7 @@ const Login = () => {
                 </button>
               )}
             </div>
-            <p className="text-sm text-red-500 font-semibold">
+            <p className="text-sm text-red-600 font-semibold font-text_primary">
               {errors.password ? errors.password[0] : ""}
             </p>
           </div>

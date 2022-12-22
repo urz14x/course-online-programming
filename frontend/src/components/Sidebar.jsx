@@ -15,8 +15,8 @@ export default function Sidebar(props) {
   };
   return (
     <>
-      <div className="relative flex min-h-screen">
-        <aside className="h-screen hidden md:block w-full">
+      <div className="relative flex min-h-screen mt-6">
+        <aside className="h-screen absolute top-0 left-0 w-96 z-0 hidden sm:block md:block">
           <nav className="p-10 antialiased ">
             <ul className="grid grid-cols-1 gap-8  divide-gray-700">
               {menuNavigates.map((menu, id) => (
@@ -33,7 +33,7 @@ export default function Sidebar(props) {
             </ul>
           </nav>
         </aside>
-        <section className="p-5">{props.children}</section>
+        <section className=" p-4 ml-2 sm:ml-64 ">{props.children}</section>
       </div>
     </>
   );

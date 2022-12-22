@@ -10,6 +10,7 @@ const authenticated = atom({
   default: {
     check: false,
     user: [],
+    admin: [],
   },
 });
 

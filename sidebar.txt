@@ -1,0 +1,16 @@
+<div class="relative flex flex-row flex-1">
+  <aside class="bg-white w-auto h-screen shadow-md">
+    <nav class="p-10 antialiased ">
+      <ul class="grid grid-cols-1 gap-8  divide-gray-700">
+        <li class="relative w-full"><a href="#" class="text-green-600 active-nav-button--active">Bahasa Python</a></li>
+        <li class="relative w-full"><a href="#" class="">Tipe data</a></li>
+        <li class="relative w-full"><a href="#" class="">Percabangan</a></li>
+        <li class="relative w-full"><a href="#" class="">Perulangan</a></li>
+        <li class="relative w-full"><a href="#" class="">Functions</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class=" p-5 text-center">
+    <h2 class="text-2xl font-bold text-gray-700">Apa itu python ?</h2>
+  </main>
+</div>

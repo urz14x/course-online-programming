@@ -6,7 +6,8 @@ import Authenticated from "../middleware/Authenticated";
 import Guest from "../middleware/Guest";
 import Articles from "../views/Articles";
 import AdminLogin from "../views/Auth/Admin/AdminLogin";
-import AdminRegister from "../views/Auth/Admin/AdminRegister";
+import Dashboard from "../views/Auth/Admin/Dashboard";
+import Admin from "../middleware/Admin";
 
 import Login from "../views/Auth/Login";
 import Profile from "../views/Auth/Profile";
@@ -17,21 +18,17 @@ import Datatypes from "../views/pages/Datatypes";
 import Functions from "../views/pages/Functions";
 import If from "../views/pages/If";
 import Introduction from "../views/pages/Introduction";
+import Choose from "../views/pages/Choose";
 
 const Router = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
-        <Route
-          exact
-          path="/"
-          element={
-            <Authenticated>
-              <Home />
-            </Authenticated>
-          }
-        />
+        <Route exact path="/" element={<Introduction />} />
+        <Route exact path="/tipe-data" element={<Datatypes />} />
+        <Route exact path="/percabangan" element={<If />} />
+        <Route exact path="/choose" element={<Choose />} />
         <Route
           path="/signin"
           element={
@@ -52,6 +49,7 @@ const Router = () => {
           path="/home"
           element={
             <Guest>
+              <Navbar />
               <Home />
             </Guest>
           }
@@ -60,19 +58,20 @@ const Router = () => {
           path="/course"
           element={
             <Authenticated>
+              <Navbar />
               <Course />
             </Authenticated>
           }
         />
         {/* //Menampilkan route article */}
-        <Route
+        {/* <Route
           path="/articles"
           element={
             <Sidebar>
               <Articles />
             </Sidebar>
           }
-        />
+        /> */}
         {/* //Menampilkan spesifik article */}
         <Route
           path="/articles/bahasa-python"
@@ -106,16 +105,25 @@ const Router = () => {
             </Sidebar>
           }
         />
-
         <Route
           path="/account/profile"
           element={
             <Authenticated>
+              <Navbar />
               <Profile />
             </Authenticated>
           }
         />
-
+        /* Admin Pages*/
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route
+          path="/dashboard"
+          element={
+            <Admin>
+              <Dashboard />
+            </Admin>
+          }
+        />
         <Route
           path="*"
           element={

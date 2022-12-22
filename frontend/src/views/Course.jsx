@@ -2,9 +2,11 @@ import React from "react";
 
 const Course = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <h1>Ini halaman course</h1>
-    </div>
+    <section className="mt-14">
+      <div className="container mx-auto">
+        <h1 className="text-2xl font-text_primary text-gray-800">Course</h1>
+      </div>
+    </section>
   );
 };
 

@@ -1,8 +1,11 @@
 import React from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { authenticated } from "../store";
+import { motion } from "framer-motion";
 import "./Styles.css";
 
 function Navbar(props) {
@@ -10,18 +13,22 @@ function Navbar(props) {
   const [auth, setAuth] = useRecoilState(authenticated);
   const [isOpen, setIsOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
-
+  const MySwal = withReactContent(Swal);
   const logout = async () => {
     setAuth({ check: false });
     localStorage.removeItem("tokens");
-    redirect("/");
-    alert("You are logout");
+    redirect("/signin");
+    MySwal.fire({
+      title: <strong>Logout success</strong>,
+      html: <i>Anda berhasil logout</i>,
+      icon: "info",
+    });
   };
   return (
     <>
-      <nav className="py-5">
+      <nav className="bg-transparent mt-3">
         <nav className="flex flex-col items-center justify-between sm:flex-row container mx-auto ">
-          <div className="bg flex w-full items-center justify-between">
+          <div className="bg flex w-full items-center justify-between px-5">
             <div className="flex items-center rounded-md bg-white shadow-sm">
               <button className="bg-primary p-3 rounded-l-md">
                 <svg
@@ -143,7 +150,9 @@ function Navbar(props) {
                       />
                     </svg>
                   </button>
-                  <div
+                  <motion.div
+                    animate={{ x: 50 }}
+                    transition={{ type: "spring", stiffness: 100 }}
                     className={` ${
                       openMenu ? "hidden" : "block"
                     } absolute top-16 right-0 bg-gray-50 shadow-md divide-y divide-gray-300 rounded`}
@@ -194,7 +203,7 @@ function Navbar(props) {
                         </span>
                       </button>
                     </div>
-                  </div>
+                  </motion.div>
                 </li>
               </ul>
             ) : (
