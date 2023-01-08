@@ -1,11 +1,24 @@
+import axios from "axios";
 import React from "react";
+import { useState } from "react";
 import { useEffect } from "react";
-import { useRecoilState } from "recoil";
 import Card from "../components/Card";
-import { authenticated } from "../store";
 const Home = () => {
-  const [auth, setAuth] = useRecoilState(authenticated);
-  useEffect(() => {}, []);
+  // const [auth, setAuth] = useRecoilState(authenticated);
+  const [courses, setCourses] = useState([]);
+  async function getCourses() {
+    try {
+      let response = await axios.get("http://127.0.0.1:8000/api/admin/course/");
+      console.log(response.data);
+      setCourses(response.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  axios.get("http://127.0.0.1:8000/api/admin/course/");
+  useEffect(() => {
+    getCourses();
+  }, []);
   return (
     <>
       <section className="flex justify-center items-start flex-col sm:items-center lg:flex-row flex-auto mt-10 sm:mt-0 gap-32 sm:gap-80">
@@ -63,21 +76,13 @@ const Home = () => {
       </div>
       <div className="flex items-center justify-center pb-10 ">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          <Card
-            title="Pytohn #1 Apa itu python"
-            thumbnail="https://i.ytimg.com/vi/8vb5yrrWLLw/maxresdefault.jpg"
-            duration="23:00"
-          />
-          <Card
-            title="Pytohn #2 Tipe data"
-            thumbnail="https://i.ytimg.com/vi/Ssf9NX6qJYQ/maxresdefault.jpg"
-            duration="23:00"
-          />
-          <Card
-            title="Pytohn #3 Perulangan"
-            thumbnail="https://i3.ytimg.com/vi/gxmTFXfrMzk/mqdefault.jpg"
-            duration="23:00"
-          />
+          {courses.map((course) => (
+            <Card
+              title={course.title_course}
+              thumbnail="https://i.ytimg.com/vi/8vb5yrrWLLw/maxresdefault.jpg"
+              duration="23:00"
+            />
+          ))}
         </div>
       </div>
     </>
