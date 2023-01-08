@@ -25,6 +25,7 @@ import DeleteCourse from "../views/Auth/Admin/Course/Delete";
 import DeleteArticle from "../views/Auth/Admin/Article/Delete";
 import Intro from "../views/pages/Auth/Intro";
 import Typedata from "../views/pages/Auth/Typedata";
+import AdminAuth from "../middleware/AdminAuth";
 const Router = () => {
   return (
     <>
@@ -140,7 +141,9 @@ const Router = () => {
           path="/dashboard"
           element={
             <Admin>
-              <Dashboard />
+              <AdminAuth>
+                <Dashboard />
+              </AdminAuth>
             </Admin>
           }
         />
