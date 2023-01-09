@@ -21,3 +21,5 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 Route::get('/admin/course', [CourseController::class, 'index']);
 Route::post('/admin/course/create', [CourseController::class, 'store']);
+Route::delete('/admin/course/delete/{id}', [CourseController::class, 'destroy']);
+Route::put('/admin/course/update/{id}', [CourseController::class, 'update']);

@@ -18,14 +18,6 @@ export default function Typedata() {
         <li>Dictionary</li>
       </p>
 
-      <ul className=" text-gray-800 antialiased ">
-        <li>
-          <span className="text-md font-text-primary">
-            Matematika: (menyelesaikan permasalahan matematika seperti aljabar,
-            kalkulus, dan trigonometri).
-          </span>
-        </li>
-      </ul>
       <button className="btn_next flex items-center gap-3 font-text_primary shadow-md overflow-hidden mt-10">
         <NavLink to="/articles/tipe-data">Selanjutnya</NavLink>
         <span>

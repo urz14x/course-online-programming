@@ -4,7 +4,7 @@ export default function Delete() {
   return (
     <div className="w-full sm:w-1/2">
       <h1 className="text-3xl font-bold font-text_primary text-gray-800 mb-5">
-        Delete Course By ID
+        Delete Article By ID
       </h1>
       <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">

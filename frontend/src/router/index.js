@@ -26,6 +26,7 @@ import DeleteArticle from "../views/Auth/Admin/Article/Delete";
 import Intro from "../views/pages/Auth/Intro";
 import Typedata from "../views/pages/Auth/Typedata";
 import AdminAuth from "../middleware/AdminAuth";
+import Edit from "../views/Auth/Admin/Course/Edit";
 const Router = () => {
   return (
     <>
@@ -160,6 +161,14 @@ const Router = () => {
           element={
             <Dashboard>
               <DeleteCourse />
+            </Dashboard>
+          }
+        />
+        <Route
+          path="/admin/edit-course"
+          element={
+            <Dashboard>
+              <Edit />
             </Dashboard>
           }
         />
